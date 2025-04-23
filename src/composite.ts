@@ -22,6 +22,7 @@ export class Composite<T extends CompositeToken> {
 	private multilineItemsTreshold: number
 	private types: string[]
 
+	/** Create a new composite type */
 	public constructor(
 		token: T,
 		types: string[],
@@ -32,6 +33,9 @@ export class Composite<T extends CompositeToken> {
 		this.types = types
 	}
 
+	/**
+	 * Formats the composite type as a string
+	 */
 	public toString(): string {
 		return this.types.length >= this.multilineItemsTreshold
 			? this.types.map((ty) => `\t${this.token} ${ty}\n`).join('')
@@ -39,6 +43,10 @@ export class Composite<T extends CompositeToken> {
 	}
 }
 
+/**
+ * Creates a union type
+ * @see https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#union-types
+ */
 export function union(
 	types: string[],
 	mulitlineItemsThreshold: number = 5,
@@ -46,6 +54,10 @@ export function union(
 	return new Composite('|', types, mulitlineItemsThreshold)
 }
 
+/**
+ * Creates an intersection type
+ * @see https://www.typescriptlang.org/docs/handbook/2/objects.html#intersection-types
+ */
 export function intersect(
 	types: string[],
 	mulitlineItemsThreshold: number = 5,
