@@ -1,22 +1,27 @@
+/**
+ * Printable built-in utility types
+ * @module
+ */
+
 import type { UnionType } from './composite.ts'
 import type { Stringable, StringLit } from './strings.ts'
 
 /**
  * Exports a symbol for reuse
- * @see https://www.typescriptlang.org/docs/handbook/modules/reference.html#importing-and-exporting-typescript-specific-declarations
+ * @see {@link https://www.typescriptlang.org/docs/handbook/modules/reference.html#importing-and-exporting-typescript-specific-declarations | TypeScript Handbook}
  */
 export const exportThis = (type: Stringable): string => `export ${type}`
 
 /**
  * Exports multiple symbols for reuse
- * @see https://www.typescriptlang.org/docs/handbook/modules/reference.html#importing-and-exporting-typescript-specific-declarations
+ * @see {@link https://www.typescriptlang.org/docs/handbook/modules/reference.html#importing-and-exporting-typescript-specific-declarations | TypeScript Handbook}
  */
 export const exportAll = (types: Stringable[]): string =>
 	types.map((type) => exportThis(type)).join('\n')
 
 /**
  * Creates a new type alias
- * @see https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-aliases
+ * @see {@link https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-aliases | TypeScript Handbook}
  */
 export const alias = (
 	ident: string,
@@ -26,38 +31,38 @@ export const alias = (
 
 /**
  * Creates a type of `Awaited<Type>`
- * @see https://www.typescriptlang.org/docs/handbook/utility-types.html#awaitedtype
+ * @see {@link https://www.typescriptlang.org/docs/handbook/utility-types.html#awaitedtype | TypeScript Handbook}
  */
 export const awaited = (type: Stringable): string => `Awaited<${type}>`
 
 /**
  * Creates a type of `Partial<Type>`
- * @see https://www.typescriptlang.org/docs/handbook/utility-types.html#partialtype
+ * @see {@link https://www.typescriptlang.org/docs/handbook/utility-types.html#partialtype | TypeScript Handbook}
  */
 export const partial = (type: Stringable): string => `Partial<${type}>`
 
 /**
  * Creates a type of `Required<Type>`
- * @see https://www.typescriptlang.org/docs/handbook/utility-types.html#requiredtype
+ * @see {@link https://www.typescriptlang.org/docs/handbook/utility-types.html#requiredtype | TypeScript Handbook}
  */
 export const required = (type: Stringable): string => `Required<${type}>`
 
 /**
  * Creates a type of `Readonly<Type>`
- * @see https://www.typescriptlang.org/docs/handbook/utility-types.html#readonlytype
+ * @see {@link https://www.typescriptlang.org/docs/handbook/utility-types.html#readonlytype | Typescript Handbook}
  */
 export const readOnly = (type: Stringable): string => `Readonly<${type}>`
 
 /**
  * Creates a type of `Record<Keys, Type>`
- * @see https://www.typescriptlang.org/docs/handbook/utility-types.html#record
+ * @see {@link https://www.typescriptlang.org/docs/handbook/utility-types.html#record | TypeScript Handbook}
  */
 export const record = (keys: Stringable, type: Stringable): string =>
 	`Record<${keys}, ${type}>`
 
 /**
  * Creates a type of `Pick<Type, Keys>`
- * @see https://www.typescriptlang.org/docs/handbook/utility-types.html#picktype-keys
+ * @see {@link https://www.typescriptlang.org/docs/handbook/utility-types.html#picktype-keys | TypeScript Handbook}
  */
 export const pick = (
 	type: Stringable,
@@ -66,7 +71,7 @@ export const pick = (
 
 /**
  * Creates a type of `Omit<Type, Keys>`
- * @see https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys
+ * @see {@link https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys | TypeScript Handbook}
  */
 export const omit = (
 	type: Stringable,
@@ -75,7 +80,7 @@ export const omit = (
 
 /**
  * Creates a type of `Exclude<UnionType, ExcludedMembers>`
- * @see https://www.typescriptlang.org/docs/handbook/utility-types.html#excludeuniontype-excludedmembers
+ * @see {@link https://www.typescriptlang.org/docs/handbook/utility-types.html#excludeuniontype-excludedmembers | TypeScript Handbook}
  */
 export const exclude = (
 	unionType: UnionType,
@@ -84,7 +89,7 @@ export const exclude = (
 
 /**
  * Creates a type of `Extract<Type, Union>`
- * @see https://www.typescriptlang.org/docs/handbook/utility-types.html#extracttype-union
+ * @see {@link https://www.typescriptlang.org/docs/handbook/utility-types.html#extracttype-union | TypeScript Handbook}
  */
 export const extract = (
 	type: Stringable,
@@ -93,58 +98,58 @@ export const extract = (
 
 /**
  * Creates a type of `NonNullable<Type>`
- * @see https://www.typescriptlang.org/docs/handbook/utility-types.html#nonnullabletype
+ * @see {@link https://www.typescriptlang.org/docs/handbook/utility-types.html#nonnullabletype | TypeScript Handbook}
  */
 export const nonNullable = (type: Stringable): string => `NonNullable<${type}>`
 
 /**
  * Creates a type of `Parameters<Type>`
- * @see https://www.typescriptlang.org/docs/handbook/utility-types.html#parameterstype
+ * @see {@link https://www.typescriptlang.org/docs/handbook/utility-types.html#parameterstype | TypeScript Handbook}
  */
 export const parameters = (type: Stringable): string => `Parameters<${type}>`
 
 /**
  * Creates a type of `ConstructorParameters<Type>`
- * @see https://www.typescriptlang.org/docs/handbook/utility-types.html#constructorparameterstype
+ * @see {@link https://www.typescriptlang.org/docs/handbook/utility-types.html#constructorparameterstype | TypeScript Handbook}
  */
 export const constructorParameters = (type: Stringable): string =>
 	`ConstructorParameters<${type}>`
 
 /**
  * Creates a type of `ReturnType<Type>`
- * @see https://www.typescriptlang.org/docs/handbook/utility-types.html#constructorparameterstype
+ * @see {@link https://www.typescriptlang.org/docs/handbook/utility-types.html#constructorparameterstype | TypeScript Handbook}
  */
 export const returnType = (type: Stringable): string => `ReturnType<${type}>`
 
 /**
  * Creates a type of `InstanceType<Type>`
- * @see https://www.typescriptlang.org/docs/handbook/utility-types.html#instancetypetype
+ * @see {@link https://www.typescriptlang.org/docs/handbook/utility-types.html#instancetypetype | TypeScript Handbook}
  */
 export const instanceType = (type: Stringable): string =>
 	`InstanceType<${type}>`
 
 /**
  * Creates a type of `NoInfer<Type>`
- * @see https://www.typescriptlang.org/docs/handbook/utility-types.html#noinfertype
+ * @see {@link https://www.typescriptlang.org/docs/handbook/utility-types.html#noinfertype | TypeScript Handbook}
  */
 export const noInfer = (type: Stringable): string => `NoInfer<${type}>`
 
 /**
  * Creates a type of `ThisParameter<Type>`
- * @see https://www.typescriptlang.org/docs/handbook/utility-types.html#thisparametertype
+ * @see {@link https://www.typescriptlang.org/docs/handbook/utility-types.html#thisparametertype | TypeScript Handbook}
  */
 export const thisParameterType = (type: Stringable): string =>
 	`ThisParameterType<${type}>`
 
 /**
  * Creates a type of `ThisParameter<Type>`
- * @see https://www.typescriptlang.org/docs/handbook/utility-types.html#omitthisparametertype
+ * @see {@link https://www.typescriptlang.org/docs/handbook/utility-types.html#omitthisparametertype | TypeScript Handbook}
  */
 export const omitThisParameter = (type: Stringable): string =>
 	`OmitThisParameter<${type}>`
 
 /**
  * Creates a type of `ThisType<Type>`
- * @see https://www.typescriptlang.org/docs/handbook/utility-types.html#thistypetype
+ * @see {@link https://www.typescriptlang.org/docs/handbook/utility-types.html#thistypetype | TypeScript Handbook}
  */
 export const thisType = (type: Stringable): string => `ThisType<${type}>`

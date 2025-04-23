@@ -1,10 +1,5 @@
 /**
- * This module contains types and functions for representing string literals.
- *
- * ```ts
- * import { singleQuoteLit } from '@nc/tasty/strings'
- *
- * ```
+ * Printable string literals
  * @module
  */
 
@@ -31,32 +26,32 @@ export type StringLit<T extends string = string> =
 
 /**
  * Creates a string literal type with single quotes
- * @see https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-types
+ * @see {@link https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-types | TypeScript Handbook}
  */
 export const singleQuoteLit = (s: string): SingleQuoteLit => `'${s}'`
 
 /**
  * Creates a string literal type with double quotes
- * @see https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-types
+ * @see {@link https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-types | TypeScript Handbook}
  */
 export const doubleQuoteLit = (s: string): DoubleQuoteLit => `"${s}"`
 
 /**
  * Creates a string template literal type
- * @see https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html
+ * @see {@link https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html | TypeScript Handbook}
  */
 export const templateLit = (s: string): TemplateLit => `\`${s}\``
 
 /**
  * Creates multiple string literal types
- * @see https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-types
+ * @see {@link https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-types | TypeScript Handbook}
  */
 export const stringLits = (vals: string[]): SingleQuoteLit[] =>
 	vals.map((l) => singleQuoteLit(l))
 
 /**
  * Creates a union type of string literals
- * @see https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-types
+ * @see {@link https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-types | TypeScript Handbook}
  */
 export const stringUnion = (vals: string[]): UnionType =>
 	union(stringLits(vals))

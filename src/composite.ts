@@ -1,3 +1,8 @@
+/**
+ * Printable union and intersection types
+ * @module
+ */
+
 /** A token literal for either a union or intersection */
 export type CompositeToken = '|' | '&'
 
@@ -45,7 +50,7 @@ export class Composite<T extends CompositeToken> {
 
 /**
  * Creates a union type
- * @see https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#union-types
+ * @see {@link https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#union-types | TypeScript Handbook}
  */
 export function union(
 	types: string[],
@@ -56,7 +61,7 @@ export function union(
 
 /**
  * Creates an intersection type
- * @see https://www.typescriptlang.org/docs/handbook/2/objects.html#intersection-types
+ * @see {@link https://www.typescriptlang.org/docs/handbook/2/objects.html#intersection-types | TypeScript Handbook}
  */
 export function intersect(
 	types: string[],
