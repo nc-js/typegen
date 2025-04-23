@@ -1,44 +1,22 @@
-# TypeScript package with JSR
+# @nc/typegen
 
-This repository template allows writing TypeScript packages in pure ESM, and
-publishing them to the [JSR registry](https://jsr.io). It provides some default settings for a
-relatively zero-config startup.
+@nc/typegen is a small utility package for declaratively generating TypeScript types. Note that while this package is cross-platform, it is meant to be used server-side within build scripts.
 
-## Getting started
+## Usage
+```ts
+import { assertEquals } from '@std/assert'
+import { alias, exportThis, stringUnion } from '@nc/typegen'
 
-First, create a new repository. Choose your method:
+// your data
+const colors = ['Red', 'Green', 'Blue']
+// your formatter
+const colorType = exportThis(alias('Color', stringUnion(colors)))
 
-- **GitHub UI**:
-  [Click here](https://github.com/new?template_name=jsr&template_owner=neoncitylights)
-  to use this template. (Or, press "Use this template" button in the top-right corner)
-- **GitHub CLI**:
-  ```shell
-  # create a public or private repository from the template
-  gh repo create --template neoncitylights/jsr --public --clone {{repository}}
-  gh repo create --template neoncitylights/jsr --private --clone {{repository}}
-  ```
-
-Then, make sure to update the following:
- - [`./LICENSE`](./LICENSE): change `{{author}}` to your username
-or real name, whichever you prefer.
- - [`./deno.json`](./deno.json): change the package name to your own.
- - [`./.github/workflows/publish.yml`](./.github/workflows/publish.yml): Uncomment out the top so that the workflow will publish your package every time there's a commit pushed to `main` branch.
- - Delete this `README.md` file, rename `LIBRARY.md` to `README.md`, and update with your own information.
-
-## Basic commands to know
-- `deno fmt`: Format files
-- `deno lint`: Lint files
-- `deno lint --fix`: Auto-apply lint fixes where possible
-- `deno test`: Run unit tests
-- `deno check`: Type-check code without executing
-- `deno doc --lint`: Lint the JSDoc in your source code before publishing
-- `deno doc --html ./src/mod.ts`: Generate HTML documentation from the entrypoint
-
-## Further reading
-- [JSR documentation](https://jsr.io/docs/)
-- [`deno.json` documentation reference](https://docs.deno.com/runtime/fundamentals/configuration/
+assertEquals(
+	colorType,
+	"export type Color = 'Red' | 'Green' | 'Blue';"
 )
-- [Deno CLI subcommands reference](https://docs.deno.com/runtime/reference/cli/)
+```
 
 ## License
 
